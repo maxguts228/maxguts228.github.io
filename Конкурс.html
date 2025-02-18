@@ -4,44 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Горжусь тобой, моя страна! Горжусь тобой, мой город!</title>
+    <style>
+        .fixed-menu {
+            position: fixed;
+            top: 35%;
+            left: 0px;
+            transform: translateY(-50%);
+            background-color: #005baa;
+            border-radius: 10px;
+            padding: 1px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
 
-<style>
-.fixed-menu {
-    position: fixed;
-    top: 35%;
-    left: 0px;
-    transform: translateY(-50%);
-    background-color: #005baa;
-    border-radius: 10px;
-    padding: 1px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-}
+        .fixed-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-.fixed-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+        .fixed-menu ul li {
+            margin: 10px 0;
+        }
 
-.fixed-menu ul li {
-    margin: 10px 0;
-}
+        .fixed-menu ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
 
-.fixed-menu ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 14px;
-    display: block;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-}
+        .fixed-menu ul li a:hover,
+        .fixed-menu ul li a.active {
+            background-color: #fff;
+            color: #005baa;
+        }
 
-.fixed-menu ul li a:hover {
-    background-color: #fff;
-    color: #005baa;
-}
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -51,14 +52,13 @@
             color: #333;
         }
 
-       header {
-    background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://blog.ostrovok.ru/wp-content/uploads/2024/03/1копия-12.jpg') no-repeat center;
-    background-size: cover;
-    color: #fff ;
-    padding: 1rem 0;
-    text-align: center;
-
-}
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://blog.ostrovok.ru/wp-content/uploads/2024/03/1копия-12.jpg') no-repeat center;
+            background-size: cover;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
 
         header h1 {
             margin: 0;
@@ -101,20 +101,20 @@
 
         .section p {
             margin-bottom: 1rem;
-         }
+        }
 
         .news-item {
             margin-bottom: 1rem;
-         }
+        }
 
         .news-item img {
             max-width: 100%;
             border-radius: 5px;
-         }
+        }
 
         .links {
             margin-top: 1rem;
-         }
+        }
 
         .links a {
             display: inline-block;
@@ -133,8 +133,6 @@
             color: #fff;
             text-align: center;
             padding: 1rem 0;
-	    text-align: center;
-
         }
 
         footer p {
@@ -158,7 +156,8 @@
         .footer-links a:hover {
             text-decoration: underline;
         }
-               @media (max-width: 768px) {
+
+        @media (max-width: 768px) {
             .container {
                 flex-direction: column;
             }
@@ -167,133 +166,147 @@
                 margin-right: 0;
                 margin-bottom: 20px;
             }
-         }
+        }
+
+        .news-item a:hover {
+            background-color: #e0f7fa;
+            color: #000;
+            transition: background-color 0.3s, color 0.3s;
+        }
     </style>
 </head>
 <body>
- <div class="flag"></div>
+    <div class="flag"></div>
     <header>
-        <h1 color: #005baa >Горжусь тобой, моя страна! Горжусь тобой, мой город!</h1>
+        <h1>Горжусь тобой, моя страна! Горжусь тобой, мой город!</h1>
         <p>Посвящается 80-летию Победы, городу Витебску и героям Великой Отечественной войны</p>
     </header>
     <div class="container">
         <div class="main-content">
             <section id="about" class="section">
-        <h2 align="center">О Витебске</h2>
-                <p>&nbsp &nbsp &nbsp &nbsp Витебск — город на севере Беларуси недалеко от границы с Россией. Пятый по численности город страны (здесь живут почти 400 тысяч человек) также является вторым по старшинству. Город был основан в 974 году — на 112 лет позже, чем Полоцк, самый древний город Беларуси.
-Витебск расположен на берегах двух рек: Западной Двины и Витьбы. В честь второй он и получил название. Многие годы Витебск процветал благодаря выгодному положению на торговом пути «из варяг в греки». Но и желающих присоединить богатый город было немало. За свою историю Витебск успел побывать столицей удельного княжества, входил в состав Литовского княжества и Речи Посполитой, Российской империи и СССР. Этот город известен своей богатой историей, уникальной архитектурой и знаменитыми уроженцами, такими как Марк Шагал.</p>
-                <p>&nbsp &nbsp &nbsp &nbspСегодня Витебск является символом патриотизма и культурного наследия Беларуси, а также городом, который постоянно развивается.</p>
+                <h2 align="center">О Витебске</h2>
+                <p>&nbsp; &nbsp; &nbsp; &nbsp; Витебск — город на севере Беларуси недалеко от границы с Россией. Пятый по численности город страны (здесь живут почти 400 тысяч человек) также является вторым по старшинству. Город был основан в 974 году — на 112 лет позже, чем Полоцк, самый древний город Беларуси.
+                Витебск расположен на берегах двух рек: Западной Двины и Витьбы. В честь второй он и получил название. Многие годы Витебск процветал благодаря выгодному положению на торговом пути «из варяг в греки». Но и желающих присоединить богатый город было немало. За свою историю Витебск успел побывать столицей удельного княжества, входил в состав Литовского княжества и Речи Посполитой, Российской империи и СССР. Этот город известен своей богатой историей, уникальной архитектурой и знаменитыми уроженцами, такими как Марк Шагал.</p>
+                <p>&nbsp; &nbsp; &nbsp; &nbsp; Сегодня Витебск является символом патриотизма и культурного наследия Беларуси, а также городом, который постоянно развивается.</p>
                 <div class="links">
                     <a href="https://ru.wikipedia.org/wiki/Витебск" target="_blank">Подробнее о Витебске</a>
                 </div>
             </section>
-<hr>
-</hr>
+            <hr>
             <section id="history" class="section">
                 <h2 align="center">История города </h2>
-                <p>	&nbsp &nbsp &nbsp &nbsp Согласно легенде, город был заложен киевской княгиней Ольгой в 974 году, а с 1021 года он упоминается в древнерусских летописях.Витебск, расположенный на перекрестке важнейших торговых путей древности ("из варяг в греки" и Великого Волжского (Булгарского), быстро превратился в центр ремесла и торговли, став центром удельного княжества, подчиняющегося Полоцким, а временами Смоленским князьям. Уже в XII веке в городе был построен первый каменный храм - православная Свято-Благовещенская церковь. В нем обучали детей, а также хранились эталоны мер веса и длины, используемые при торговых операциях.
-<p> &nbsp &nbsp &nbsp &nbsp В 1597 году от короля Сигизмунда III Витебск получил свой герб и грамоту на Магдебургское право, что давало возможность регулировать жизнь города с помощью собственной системы юридических норм. В 1792 году Витебск вошел в состав Российской империи и в 1796 году стал центром Белорусской, с 1802 года - Витебской губернии. </p>
-&nbsp &nbsp &nbsp &nbsp Город быстро развивался. Уже в первые десятилетия ХХ века он стал одним из крупнейших центров Беларуси. В нем проживало 109 тыс. жителей, работали 45 предприятий, две гимназии, учительский институт, духовная семинария, пять библиотек, частная художественная школа Ю.Пэна. В 20-х годах Витебск становится центром художественной жизни: открывается Народное художественное училище (ныне Витебское художественное училище), его основателем стал художник Марк Шагал, Витебская Народная консерватория, Театр революционной сатиры (Теревсат) и многое другое.
-                </p>
-                <p>&nbsp &nbsp &nbsp В 1918 году Витебск входит в состав Западной области РСФСР, в 1924 году - в состав БССР, с 1938 года становится областным центром, насчитывающим 209 предприятий, три ВУЗа, 42 общеобразовательные школы, 40 библиотек, 11 больниц, три кинотеатра, цирк и драмтеатр.</p>
+                <p>&nbsp; &nbsp; &nbsp; &nbsp; Согласно легенде, город был заложен киевской княгиней Ольгой в 974 году, а с 1021 года он упоминается в древнерусских летописях. Витебск, расположенный на перекрестке важнейших торговых путей древности ("из варяг в греки" и Великого Волжского (Булгарского), быстро превратился в центр ремесла и торговли, став центром удельного княжества, подчиняющегося Полоцким, а временами Смоленским князьям. Уже в XII веке в городе был построен первый каменный храм - православная Свято-Благовещенская церковь. В нем обучали детей, а также хранились эталоны мер веса и длины, используемые при торговых операциях.
+                <p>&nbsp; &nbsp; &nbsp; &nbsp; В 1597 году от короля Сигизмунда III Витебск получил свой герб и грамоту на Магдебургское право, что давало возможность регулировать жизнь города с помощью собственной системы юридических норм. В 1792 году Витебск вошел в состав Российской империи и в 1796 году стал центром Белорусской, с 1802 года - Витебской губернии.</p>
+                &nbsp; &nbsp; &nbsp; &nbsp; Город быстро развивался. Уже в первые десятилетия ХХ века он стал одним из крупнейших центров Беларуси. В нем проживало 109 тыс. жителей, работали 45 предприятий, две гимназии, учительский институт, духовная семинария, пять библиотек, частная художественная школа Ю.Пэна. В 20-х годах Витебск становится центром художественной жизни: открывается Народное художественное училище (ныне Витебское художественное училище), его основателем стал художник Марк Шагал, Витебская Народная консерватория, Театр революционной сатиры (Теревсат) и многое другое.</p>
+                <p>&nbsp; &nbsp; &nbsp; &nbsp; В 1918 году Витебск входит в состав Западной области РСФСР, в 1924 году - в состав БССР, с 1938 года становится областным центром, насчитывающим 209 предприятий, три ВУЗа, 42 общеобразовательные школы, 40 библиотек, 11 больниц, три кинотеатра, цирк и драмтеатр.</p>
                 <div class="links">
                     <a href="https://vitebsk.gov.by/ru/new_3-ru/" target="_blank">История Витебска</a>
                 </div>
             </section>
-<hr>
-</hr>
+            <hr>
             <section id="projects" class="section">
                 <h2 align="center">80-летие Победы</h2>
-                <p>&nbsp &nbsp &nbsp &nbsp &nbspВитебск и Витебская область столкнулись с самыми тяжёлыми испытаниями во время Великой Отечественной войны. 11 июля 1941 года город был оккупирован. В первые дни войны для его обороны были созданы Витебское народное ополчение и местные противовоздушные дружины, а также построены оборонительные линии. В Суражском районе отряд Батьки Миная (М.Ф. Шмырев) начал бескомпромиссную борьбу с врагом, а параллельно действовал отряд «Дяди Кости» (К.С. Заслонов), сформированный на основе подпольной группы из Орши. Ветераны Витебского подполья, такие как В.З. Хоружая и Е.С. Зенькова (посмертно удостоенная звания Героя Советского Союза), а также И.А. Бекишев и А.Е. Белохвостикова, оставили яркий след в истории.
-                Освобождение Витебской области началось осенью 1943 года и продолжилось летом 1944 года в рамках операции «Багратион». 26 июня 1944 года город был освобождён.
-                </p>
-                <p>&nbsp &nbsp &nbsp &nbsp Великая Отечественная война принесла Витебску невиданные разрушения: более 90% города было разрушено, целые кварталы и промышленные предприятия уничтожены, а памятники архитектуры серьёзно пострадали. Тысячи жителей погибли, были замучены в концлагерях и угнаны в Германию. Тем не менее, в первые послевоенные годы Витебск не только восстановился, но и значительно расширился. К 80-летию Победы мы чтим память героев, которые отдали свои жизни за свободу родной земли. Витебск навсегда останется символом мужества и стойкости.</p>
+                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Витебск и Витебская область столкнулись с самыми тяжёлыми испытаниями во время Великой Отечественной войны. 11 июля 1941 года город был оккупирован. В первые дни войны для его обороны были созданы Витебское народное ополчение и местные противовоздушные дружины, а также построены оборонительные линии. В Суражском районе отряд Батьки Миная (М.Ф. Шмырев) начал бескомпромиссную борьбу с врагом, а параллельно действовал отряд «Дяди Кости» (К.С. Заслонов), сформированный на основе подпольной группы из Орши. Ветераны Витебского подполья, такие как В.З. Хоружая и Е.С. Зенькова (посмертно удостоенная звания Героя Советского Союза), а также И.А. Бекишев и А.Е. Белохвостикова, оставили яркий след в истории.
+                Освобождение Витебской области началось осенью 1943 года и продолжилось летом 1944 года в рамках операции «Багратион». 26 июня 1944 года город был освобождён.</p>
+                <p>&nbsp; &nbsp; &nbsp; &nbsp; Великая Отечественная война принесла Витебску невиданные разрушения: более 90% города было разрушено, целые кварталы и промышленные предприятия уничтожены, а памятники архитектуры серьёзно пострадали. Тысячи жителей погибли, были замучены в концлагерях и угнаны в Германию. Тем не менее, в первые послевоенные годы Витебск не только восстановился, но и значительно расширился. К 80-летию Победы мы чтим память героев, которые отдали свои жизни за свободу родной земли. Витебск навсегда останется символом мужества и стойкости.</p>
                 <div class="links">
                     <a href="https://subbotniki.ivjeroo.gov.by/новости/80-лет-победы-советского-народа-в-великой-отечественной-войне">Подробнее</a>
                 </div>
             </section>
-<hr>
-</hr>
+            <hr>
             <section id="projects1" class="section">
                 <h2 align="center">Герои Великой Отечественной войны</h2>
-                <p>&nbsp &nbsp &nbsp &nbsp Великая Отечественная война оставила неизгладимый след в истории нашего народа. Многие витебляне проявили невероятное мужество и героизм в борьбе с фашистскими захватчиками. Одним из таких героев является Александр Ефимович Белохвостиков, в честь которого названа улица в Витебске и школа № 6, учеником которой я являюсь.</p>
-                <p>&nbsp &nbsp &nbsp &nbsp Александр Ефимович Белохвостиков родился 10 августа 1914 года в деревне Альховик сегодняшнего Лиозненского района в крестьянской семье. После окончания семилетки он работал на Лиозненском льнокомбинате, затем был кочегаром на швейной фабрике «Профинтерн» в Витебске и одновременно учился на рабфаке Витебского индустриально-педагогического института. Позже он поступил в Белорусский институт народного хозяйства в Минске на планово-экономический факультет. В 1938 году его направили на станкостроительный завод имени С. М. Кирова в Гомеле, но он вернулся в Витебск, чтобы быть ближе к семье.</p>
-                <p>&nbsp &nbsp &nbsp &nbsp С началом Великой Отечественной войны Александр Белохвостиков был оставлен в Витебске для организации подпольной работы. Он возглавил одну из самых боевых подпольных групп, действовавшую под псевдонимом Альдемар. Группа эффективно вела разведывательную работу, совершала диверсии и поддерживала связь с партизанскими отрядами. В 1943 году Александр Ефимович и его сестра Мария были арестованы и расстреляны фашистами. В 1948 году Александр Белохвостиков был посмертно награжден орденом Отечественной войны I степени.</p>
-                <p>&nbsp &nbsp &nbsp &nbsp Память о героях Великой Отечественной войны живет в наших сердцах. Мы, ученики школы № 6, гордимся тем, что наша школа носит имя Александра Ефимовича Белохвостикова. Его пример вдохновляет нас на подвиги и патриотизм. Мы помним и чтим всех, кто отдал свои жизни за свободу и независимость нашей Родины.</p>
+                <p>&nbsp; &nbsp; &nbsp; &nbsp; Великая Отечественная война оставила неизгладимый след в истории нашего народа. Многие витебляне проявили невероятное мужество и героизм в борьбе с фашистскими захватчиками. Одним из таких героев является Александр Ефимович Белохвостиков, в честь которого названа улица в Витебске и школа № 6, учеником которой я являюсь.</p>
+                <p>&nbsp; &nbsp; &nbsp; &nbsp; Александр Ефимович Белохвостиков родился 10 августа 1914 года в деревне Альховик сегодняшнего Лиозненского района в крестьянской семье. После окончания семилетки он работал на Лиозненском льнокомбинате, затем был кочегаром на швейной фабрике «Профинтерн» в Витебске и одновременно учился на рабфаке Витебского индустриально-педагогического института. Позже он поступил в Белорусский институт народного хозяйства в Минске на планово-экономический факультет. В 1938 году его направили на станкостроительный завод имени С. М. Кирова в Гомеле, но он вернулся в Витебск, чтобы быть ближе к семье.</p>
+                <p>&nbsp; &nbsp; &nbsp; &nbsp; С началом Великой Отечественной войны Александр Белохвостиков был оставлен в Витебске для организации подпольной работы. Он возглавил одну из самых боевых подпольных групп, действовавшую под псевдонимом Альдемар. Группа эффективно вела разведывательную работу, совершала диверсии и поддерживала связь с партизанскими отрядами. В 1943 году Александр Ефимович и его сестра Мария были арестованы и расстреляны фашистами. В 1948 году Александр Белохвостиков был посмертно награжден орденом Отечественной войны I степени.</p>
+                <p>&nbsp; &nbsp; &nbsp; &nbsp; Память о героях Великой Отечественной войны живет в наших сердцах. Мы, ученики школы № 6, гордимся тем, что наша школа носит имя Александра Ефимовича Белохвостикова. Его пример вдохновляет нас на подвиги и патриотизм. Мы помним и чтим всех, кто отдал свои жизни за свободу и независимость нашей Родины.</p>
                 <div class="links">
                     <a href="http://www.evitebsk.com/wiki/Герои_Советского_Союза" target="_blank">Герои Великой Отечественной войны</a>
                 </div>
             </section>
-<hr>
-</hr>
+            <hr>
             <section id="projects2" class="section">
                 <h2 align="center">Школа № 6 имени А. Е. Белохвостикова</h2>
-                <p>&nbsp &nbsp &nbsp &nbsp Средняя школа № 6 в Витебске названа в честь Александра Ефимовича Белохвостикова. Торжественная церемония присвоения школе его имени состоялась 22 июня 2022 года, в День всенародной памяти жертв Великой Отечественной войны. Педагоги и учащиеся школы собрали богатый материал о судьбе Александра Белохвостикова и его семье.</p>
-                <p>&nbsp &nbsp &nbsp &nbsp В школе всегда уделяли большое внимание военно-патриотическому и гражданскому воспитанию учащихся. Частыми гостями школы были ветераны Великой Отечественной войны, а сейчас школьники поддерживают связь с бывшими узниками фашистских концлагерей, воинами-интернационалистами, ветеранами Вооруженных Сил и труда.</p>
-                <p>&nbsp &nbsp &nbsp &nbsp Одно из школьных помещений оформлено как музей, посвященный участникам Великой Отечественной войны. Здесь можно увидеть портреты героев, в том числе Александра Белохвостикова, а также стенды, рассказывающие о геноциде белорусского народа в годы войны. В планах педагогического коллектива — расширение экспозиции, посвященной герою-подпольщику.</p>
-                <p>&nbsp &nbsp &nbsp &nbsp Воспитание гражданина и патриота стоит у нас на первом месте. Мы все — и учащиеся, и педагоги — гордимся тем, что наша школа носит имя героя. Мужество и патриотизм Александра Белохвостикова служат для нас примером и вдохновляют на новые свершения.</p>
-               <div class="links">
+                <p>&nbsp; &nbsp; &nbsp; &nbsp; Средняя школа № 6 в Витебске названа в честь Александра Ефимовича Белохвостикова. Торжественная церемония присвоения школе его имени состоялась 22 июня 2022 года, в День всенародной памяти жертв Великой Отечественной войны. Педагоги и учащиеся школы собрали богатый материал о судьбе Александра Белохвостикова и его семье.</p>
+                <p>&nbsp; &nbsp; &nbsp; &nbsp; В школе всегда уделяли большое внимание военно-патриотическому и гражданскому воспитанию учащихся. Частыми гостями школы были ветераны Великой Отечественной войны, а сейчас школьники поддерживают связь с бывшими узниками фашистских концлагерей, воинами-интернационалистами, ветеранами Вооруженных Сил и труда.</p>
+                <p>&nbsp; &nbsp; &nbsp; &nbsp; Одно из школьных помещений оформлено как музей, посвященный участникам Великой Отечественной войны. Здесь можно увидеть портреты героев, в том числе Александра Белохвостикова, а также стенды, рассказывающие о геноциде белорусского народа в годы войны. В планах педагогического коллектива — расширение экспозиции, посвященной герою-подпольщику.</p>
+                <p>&nbsp; &nbsp; &nbsp; &nbsp; Воспитание гражданина и патриота стоит у нас на первом месте. Мы все — и учащиеся, и педагоги — гордимся тем, что наша школа носит имя героя. Мужество и патриотизм Александра Белохвостикова служат для нас примером и вдохновляют на новые свершения.</p>
+                <div class="links">
                     <a href="https://yandex.by/maps/org/srednyaya_shkola_6_g_vitebska_imeni_a_ye_belokhvostikova/1012391857/?ll=30.250589%2C55.199160&mode=search&sll=30.250589%2C55.199160&source=serp_navig&text=школа%20номер%206%20витебск&z=16" target="_blank">Смотреть карту города</a>
                 </div>
-
             </section>
-<hr>
-</hr>
-           <section id="personal-statement" class="section">
-    <h2 align="center">Почему я выбрал эту тему</h2>
-    <p>&nbsp &nbsp &nbsp &nbsp Я, ученик школы № 6 в Витебске, решил создать этот сайт, чтобы почтить память героев Великой Отечественной войны и рассказать о тех, кто отдал свои жизни за свободу нашей Родины. Наша школа носит имя Александра Ефимовича Белохвостикова, и я горжусь тем, что могу внести свой вклад в сохранение памяти о его подвигах.</p>
-    <p>&nbsp &nbsp &nbsp &nbsp Александр Белохвостиков и его товарищи проявили невероятное мужество и героизм в борьбе с фашистскими захватчиками. Их пример вдохновляет меня и моих одноклассников на подвиги и патриотизм. Мы помним и чтим всех, кто отдал свои жизни за свободу и независимость нашей страны.</p>
-    <p>&nbsp &nbsp &nbsp &nbsp Создание этого сайта — мой способ выразить благодарность и уважение к героям войны. Я надеюсь, что эта информация будет полезна и интересна всем, кто посетит мой сайт, и поможет сохранить память о великих подвигах нашего народа.</p>
-</section>
-
+            <hr>
+            <section id="personal-statement" class="section">
+                <h2 align="center">Почему я выбрал эту тему</h2>
+                <p>&nbsp; &nbsp; &nbsp; &nbsp; Я, ученик школы № 6 в Витебске, решил создать этот сайт, чтобы почтить память героев Великой Отечественной войны и рассказать о тех, кто отдал свои жизни за свободу нашей Родины. Наша школа носит имя Александра Ефимовича Белохвостикова, и я горжусь тем, что могу внести свой вклад в сохранение памяти о его подвигах.</p>
+                <p>&nbsp; &nbsp; &nbsp; &nbsp; Александр Белохвостиков и его товарищи проявили невероятное мужество и героизм в борьбе с фашистскими захватчиками. Их пример вдохновляет меня и моих одноклассников на подвиги и патриотизм. Мы помним и чтим всех, кто отдал свои жизни за свободу и независимость нашей страны.</p>
+                <p>&nbsp; &nbsp; &nbsp; &nbsp; Создание этого сайта — мой способ выразить благодарность и уважение к героям войны. Я надеюсь, что эта информация будет полезна и интересна всем, кто посетит мой сайт, и поможет сохранить память о великих подвигах нашего народа.</p>
+            </section>
         </div>
-    <aside class="sidebar">
-    <h2>Новости Витебска</h2>
-
-    <div class="news-item" style="border: 2px solid #005baa; border-radius: 10px; background-color: #ffffff; margin-bottom: 1rem;">
-        <a href="https://www.sb.by/articles/bolee-2-5-tysyachi-voinov-internatsionalistov-ezhegodno-vosstanavlivayutsya-v-vitebskom-tsentre-medr.html" target="_blank" style="display: block; padding: 1rem; text-decoration: none; color: #005baa;">
-            <img src="https://io.sb.by/storage01/iblock/475/475db22ef348a776b35e7e52b7e8032a/5420600add4448e4b6d4b2f4101932fb.jpg" alt="Благотворительность" style="border-radius: 5px; max-width: 100%;">
-            <span style="display: block; margin-top: 0.5rem;">Реабилитация воинов-интернационалистов</span>
-        </a>
+        <aside class="sidebar">
+            <h2>Новости Витебска</h2>
+            <div class="news-item" style="border: 2px solid #005baa; border-radius: 10px; background-color: #ffffff; margin-bottom: 1rem;">
+                <a href="https://www.sb.by/articles/bolee-2-5-tysyachi-voinov-internatsionalistov-ezhegodno-vosstanavlivayutsya-v-vitebskom-tsentre-medr.html" target="_blank" style="display: block; padding: 1rem; text-decoration: none; color: #005baa;">
+                    <img src="https://io.sb.by/storage01/iblock/475/475db22ef348a776b35e7e52b7e8032a/5420600add4448e4b6d4b2f4101932fb.jpg" alt="Благотворительность" style="border-radius: 5px; max-width: 100%;">
+                    <span style="display: block; margin-top: 0.5rem;">Реабилитация воинов-интернационалистов</span>
+                </a>
+            </div>
+            <div class="news-item" style="border: 2px solid #005baa; border-radius: 10px; background-color: #ffffff; margin-bottom: 1rem;">
+                <a href="https://www.sb.by/articles/ekspert-meropriyatiya-k-80-letiyu-pobedy-organizovany-s-uchetom-interesov-i-vozmozhnostey-vsekh-ucha.html" target="_blank" style="display: block; padding: 1rem; text-decoration: none; color: #005baa;">
+                    <img src="https://io.sb.by/storage01/iblock/655/65599084adf97eaee35fe4e851325e84/f897c8b97acfb363ecbcb767392d1aed.jpg" alt="80-летие Победы" style="border-radius: 5px; max-width: 100%;">
+                    <span style="display: block; margin-top: 0.5rem;">Подготовка к празднованию 80-летия Победы</span>
+                </a>
+            </div>
+            <div class="news-item" style="border: 2px solid #005baa; border-radius: 10px; background-color: #ffffff; margin-bottom: 1rem;">
+                <a href="https://www.sb.by/articles/investitsii-v-zdorove-vitebsk-stroitelstvo-bolnica.html" target="_blank" style="display: block; padding: 1rem; text-decoration: none; color: #005baa;">
+                    <img src="https://io.sb.by/storage01/iblock/5a1/5a1f04de429a868d44252e4fd9821aef/4f5eb93d0456862b4d59f1bc44ddb67c.jpg" alt="Благоустройство" style="border-radius: 5px; max-width: 100%;">
+                    <span style="display: block; margin-top: 0.5rem;">Строительство нового хирургического корпуса</span>
+                </a>
+            </div>
+            <div class="news-item" style="border: 2px solid #005baa; border-radius: 10px; background-color: #ffffff; margin-bottom: 1rem;">
+                <a href="https://vitebsk.mchs.gov.by/novosti/478989/" target="_blank" style="display: block; padding: 1rem; text-decoration: none; color: #005baa;">
+                    <img src="https://www.oshmiany.gov.by/images/storage/news/066094_895174_big.jpg" alt="МЧС Беларуси" style="border-radius: 5px; max-width: 100%;">
+                    <span style="display: block; margin-top: 0.5rem;">Пожар в Лиозненском районе</span>
+                </a>
+            </div>
+            <div class="news-item" style="border: 2px solid #005baa; border-radius: 10px; background-color: #ffffff; margin-bottom: 1rem;">
+                <a href="https://vitvesti.by/obshestvo/kachestvo-kak-natcionalnyi-brend-etu-temu-obsudili-na-press-konferentcii-v-mediatcentre-vitebskoi-oblasti.html" target="_blank" style="display: block; padding: 1rem; text-decoration: none; color: #005baa;">
+                    <img src="https://vitvesti.by/images/y2025/02-14/mediacentre-05.jpg" alt="Качество" style="border-radius: 5px; max-width: 100%;">
+                    <span style="display: block; margin-top: 0.5rem;">Качество как национальный бренд</span>
+                </a>
+            </div>
+            <div class="news-item" style="border: 2px solid #005baa; border-radius: 10px; background-color: #ffffff; margin-bottom: 1rem;">
+                <a href="https://vitvesti.by/sport/v-vitebske-proshel-traditcionnyi-mezhdunarodnyi-shakhmatnyi-turnir-posviashchennyi-petru-masherovu.html"_blank" style="display: block; padding: 1rem; text-decoration: none; color: #005baa;">
+                    <img src="https://vitvesti.by/images/y2025/02-18/a2.jpg" alt="В Витебске прошел традиционный международный шахматный турнир, посвященный Петру Машерову" style="border-radius: 5px; max-width: 100%;">
+                    <span style="display: block; margin-top: 0.5rem;">В Витебске прошел традиционный международный шахматный турнир, посвященный Петру Машерову</span>
+                </a>
+            </div>
+            <div class="news-item" style="border: 2px solid #005baa; border-radius: 10px; background-color: #ffffff; margin-bottom: 1rem;">
+                <a href="https://vitvesti.by/obshestvo/kogda-roditeli-mogut-vziat-dopolnitelnyi-vykhodnoi-rasskazali-v-mintruda.html" target="_blank" style="display: block; padding: 1rem; text-decoration: none; color: #005baa;">
+                    <img src="https://president.gov.by/fp/v1/699/image-thumb__17699__block-right-left/17699.1590595157.9431148d8d.jpg" alt="Новый спортивный объект" style="border-radius: 5px; max-width: 100%;">
+                    <span style="display: block; margin-top: 0.5rem;">Когда родители могут взять дополнительный выходной, рассказали в Минтруда</span>
+                </a>
+            </div>
+            <div class="news-item" style="border: 2px solid #005baa; border-radius: 10px; background-color: #ffffff; margin-bottom: 1rem;">
+                <a href="https://vitvesti.by/politics/na-kollegii-uvd-vitebskogo-oblispolkoma-podveli-itogi-za-2024-god.html" target="_blank" style="display: block; padding: 1rem; text-decoration: none; color: #005baa;">
+                    <img src="https://vitvesti.by/images/y2025/02-18/uvd_08.jpg" alt="Новый спортивный объект" style="border-radius: 5px; max-width: 100%;">
+                    <span style="display: block; margin-top: 0.5rem;">На коллегии УВД Витебского облисполкома подвели итоги за 2024 год</span>
+                </a>
+            </div>
+            <div class="news-item" style="border: 2px solid #005baa; border-radius: 10px; background-color: #ffffff; margin-bottom: 1rem;">
+                <a href="https://vitvesti.by/obrazovanie/kakie-novye-spetcialnosti-otkroiutsia-v-vuzakh-v-2025-godu-rasskazal-ivanetc.html" target="_blank" style="display: block; padding: 1rem; text-decoration: none; color: #005baa;">
+                    <img src="https://avatars.mds.yandex.net/get-entity_search/1731127/1010158638/SUx182_2x" alt="Новый спортивный объект" style="border-radius: 5px; max-width: 100%;">
+                    <span style="display: block; margin-top: 0.5rem;">Какие новые специальности откроются в вузах в 2025 году, рассказал Иванец</span>
+                </a>
+            </div>
+            <div class="news-item" style="border: 2px solid #005baa; border-radius: 10px; background-color: #ffffff; margin-bottom: 1rem;">
+                <a href="https://vitvesti.by/coleidoscope/na-solntce-proizoshla-silnaia-vspyshka.html" target="_blank" style="display: block; padding: 1rem; text-decoration: none; color: #005baa;">
+                    <img src="https://cdnn11.img.sputnik.by/img/07e8/05/1b/1086565145_0:0:1614:1076_1440x900_80_0_1_4529c56780062b5cb22bdf0c33c295a4.jpg.webp?source-sid=ap_photo" alt="Новый спортивный объект" style="border-radius: 5px; max-width: 100%;">
+                    <span style="display: block; margin-top: 0.5rem;">На Солнце произошла сильная вспышка</span>
+                </a>
+            </div>
+        </aside>
     </div>
-
-    <div class="news-item" style="border: 2px solid #005baa; border-radius: 10px; background-color: #ffffff; margin-bottom: 1rem;">
-        <a href="https://www.sb.by/articles/ekspert-meropriyatiya-k-80-letiyu-pobedy-organizovany-s-uchetom-interesov-i-vozmozhnostey-vsekh-ucha.html" target="_blank" style="display: block; padding: 1rem; text-decoration: none; color: #005baa;">
-            <img src="https://io.sb.by/storage01/iblock/655/65599084adf97eaee35fe4e851325e84/f897c8b97acfb363ecbcb767392d1aed.jpg" alt="80-летие Победы" style="border-radius: 5px; max-width: 100%;">
-            <span style="display: block; margin-top: 0.5rem;">Подготовка к празднованию 80-летия Победы</span>
-        </a>
-    </div>
-
-    <div class="news-item" style="border: 2px solid #005baa; border-radius: 10px; background-color: #ffffff; margin-bottom: 1rem;">
-        <a href="https://www.sb.by/articles/investitsii-v-zdorove-vitebsk-stroitelstvo-bolnica.html" target="_blank" style="display: block; padding: 1rem; text-decoration: none; color: #005baa;">
-            <img src="https://io.sb.by/storage01/iblock/5a1/5a1f04de429a868d44252e4fd9821aef/4f5eb93d0456862b4d59f1bc44ddb67c.jpg" alt="Благоустройство" style="border-radius: 5px; max-width: 100%;">
-            <span style="display: block; margin-top: 0.5rem;">Строительство нового хирургического корпуса</span>
-        </a>
-    </div>
-
-    <div class="news-item" style="border: 2px solid #005baa; border-radius: 10px; background-color: #ffffff; margin-bottom: 1rem;">
-        <a href="https://vitebsk.mchs.gov.by/novosti/478989/" target="_blank" style="display: block; padding: 1rem; text-decoration: none; color: #005baa;">
-            <img src="https://www.oshmiany.gov.by/images/storage/news/066094_895174_big.jpg" alt="МЧС Беларуси" style="border-radius: 5px; max-width: 100%;">
-            <span style="display: block; margin-top: 0.5rem;">Пожар в Лиозненском районе</span>
-        </a>
-    </div>
-
-    <div class="news-item" style="border: 2px solid #005baa; border-radius: 10px; background-color: #ffffff; margin-bottom: 1rem;">
-        <a href="https://vitvesti.by/obshestvo/kachestvo-kak-natcionalnyi-brend-etu-temu-obsudili-na-press-konferentcii-v-mediatcentre-vitebskoi-oblasti.html" target="_blank" style="display: block; padding: 1rem; text-decoration: none; color: #005baa;">
-            <img src="https://vitvesti.by/images/y2025/02-14/mediacentre-05.jpg" alt="Качество" style="border-radius: 5px; max-width: 100%;">
-            <span style="display: block; margin-top: 0.5rem;">Качество как национальный бренд</span>
-        </a>
-    </div>
-</aside>
-
-<style>
-    .news-item a:hover {
-        background-color: #e0f7fa;
-        color: #000;
-        transition: background-color 0.3s, color 0.3s;
-    }
-</style>
- </div>
     <footer>
         <p>&copy; 2025 Горжусь тобой, моя страна! Горжусь тобой, мой город!</p>
     </footer>
@@ -303,15 +316,45 @@
         <a href="https://gorodvitebsk.by/news/24-03-2024/blagoustroystvo_vitebska_k_vazhnym_meropriyatiyam_kakoy_plan_raboty_" target="_blank">Благоустройство</a>
         <a href="https://dzen.ru/a/YgC74-5h9iylQ_av" target="_blank">Галерея</a>
     </div>
+    <nav class="fixed-menu">
+        <ul>
+            <li><a href="#about">О Витебске</a></li>
+            <li><a href="#history">История</a></li>
+            <li><a href="#projects">80-летие Победы</a></li>
+            <li><a href="#projects1">Герои ВОВ</a></li>
+            <li><a href="#projects2">Школа № 6</a></li>
+            <li><a href="#personal-statement">Причина</a></li>
+        </ul>
+    </nav>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.fixed-menu ul li a');
+
+            function updateActiveLink() {
+                let current = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveLink);
+        });
+    </script>
 </body>
-<nav class="fixed-menu">
-    <ul>
-        <li><a href="#about">О Витебске</a></li>
-        <li><a href="#history">История</a></li>
-        <li><a href="#projects">80-летие Победы</a></li>
-        <li><a href="#projects1">Герои ВОВ</a></li>
-        <li><a href="#projects2">Школа № 6</a></li>
-        <li><a href="#personal-statement">Причина</a></li>
-    </ul>
-</nav>
+</html>
+
+</body>
 </html>
