@@ -235,7 +235,7 @@
         .fixed-menu {
             position: fixed;
             top: 50%;
-            right: -250px; /* Шторка скрыта за пределами экрана */
+            right: -250px; 
             transform: translateY(-50%);
             background: var(--section-bg);
             border-radius: 15px 0 0 15px;
@@ -252,11 +252,11 @@
 
         .fixed-menu .toggle-btn {
             position: absolute;
-            left: -40px;
+            left: -50px;
             top: 50%;
             transform: translateY(-50%);
             width: 40px;
-            height: 80px;
+            height: 90px;
             background: var(--primary-color);
             border-radius: 10px 0 0 10px;
             display: flex;
@@ -269,7 +269,7 @@
         }
 
         .fixed-menu .toggle-btn::after {
-            content: '☰';
+            content: '⌕';
             transition: transform 0.3s;
         }
 
