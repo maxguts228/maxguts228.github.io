@@ -5,6 +5,161 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Горжусь тобой, моя страна! Горжусь тобой, мой город!</title>
     <style>
+.film-strip {
+            display: flex;
+            overflow-x: auto;
+            padding: 40px 20px;
+            margin: 3rem -1rem;
+            position: relative;
+            background: #f0f0f0;
+            gap: 15px;
+        }
+
+        .film-strip::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: repeating-linear-gradient(
+                to right,
+                transparent 0,
+                transparent 10px,
+                rgba(0,0,0,0.3) 10px,
+                rgba(0,0,0,0.3) 20px
+            );
+        }
+
+        .film-strip img {
+            flex: 0 0 auto;
+            width: 250px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 3px;
+            transform: rotate(2deg);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .film-strip img:nth-child(even) {
+            transform: rotate(-2deg);
+            margin-top: 15px;
+        }
+
+        .film-strip img:hover {
+            transform: rotate(0) scale(1.05);
+            z-index: 1;
+        }
+.film-strip {
+    background: #e5e5e5; /* Цвет фона пленки */
+    border-radius: 8px; /* Скругление углов */
+    margin: 4rem 0;
+    padding: 60px 20px; /* Увеличили отступы */
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.1); /* Эффект "вдавленности" */
+}
+
+.film-strip img {
+    border: 2px solid white; /* Белая рамка у фото */
+    filter: grayscale(90%) contrast(110%); /* Винтажный эффект */
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Сложная анимация */
+}
+
+.film-strip img:hover {
+    filter: grayscale(0%) contrast(120%); /* Цветное фото при наведении */
+}
+.film-strip::before,
+.film-strip::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 10px;
+    height: 40px; /* Увеличили высоту полос */
+    background: repeating-linear-gradient(
+        to right,
+        #d1d1d1 0%,
+        #d1d1d1 10%,
+        transparent 10%,
+        transparent 20%
+    );
+    opacity: 0.8;
+}
+
+.film-strip::before {
+    top: 10px; /* Позиционирование верхней полосы */
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.film-strip::after {
+    bottom: 10px; /* Позиционирование нижней полосы */
+    box-shadow: inset 0 -2px 5px rgba(0,0,0,0.1);
+}
+/* Тематические модификации пленок */
+.film-strip.historical {
+    background: #f5f3ef;
+}
+.film-strip.historical::before,
+.film-strip.historical::after {
+    background: repeating-linear-gradient(
+        to right,
+        #c4b8a8 0%,
+        #c4b8a8 10%,
+        transparent 10%,
+        transparent 20%
+    );
+}
+
+.film-strip.military {
+    background: #e8e6e1;
+}
+.film-strip.military::before,
+.film-strip.military::after {
+    background: repeating-linear-gradient(
+        to right,
+        #8b8b8b 0%,
+        #8b8b8b 10%,
+        transparent 10%,
+        transparent 20%
+    );
+}
+
+.film-strip.heroes {
+    background: #f0ece4;
+}
+.film-strip.heroes::before,
+.film-strip.heroes::after {
+    background: repeating-linear-gradient(
+        to right,
+        #d4af37 0%,
+        #d4af37 10%,
+        transparent 10%,
+        transparent 20%
+    );
+}
+
+.film-strip.school {
+    background: #edf3f7;
+}
+.film-strip.school::before,
+.film-strip.school::after {
+    background: repeating-linear-gradient(
+        to right,
+        #1a4d8f 0%,
+        #1a4d8f 10%,
+        transparent 10%,
+        transparent 20%
+    );
+}
+@media (max-width: 768px) {
+    .film-strip {
+        padding: 30px 15px;
+    }
+    
+    .film-strip img {
+        width: 200px;
+        height: 150px;
+    }
+}
 .social-links {
     position: relative;
     margin-top: 2rem;
@@ -41,7 +196,7 @@
             --text-dark: #2d3436;
             --text-light: #f8f9fa;
             --section-bg: #ffffff;
-        }
+}
 
         body {
             font-family: 'Roboto', 'Open Sans', Arial, sans-serif;
@@ -232,10 +387,11 @@
             background: rgba(255, 255, 255, 0.2);
         }
 
+     
         .fixed-menu {
             position: fixed;
             top: 50%;
-            right: -250px; 
+            right: -250px; /* Шторка скрыта за пределами экрана */
             transform: translateY(-50%);
             background: var(--section-bg);
             border-radius: 15px 0 0 15px;
@@ -246,10 +402,9 @@
             cursor: pointer;
         }
 
-        .fixed-menu.open {
+          .fixed-menu.open {
             right: 0; 
         }
-
         .fixed-menu .toggle-btn {
             position: absolute;
             left: -50px;
@@ -378,9 +533,24 @@
                 <p>Витебск — город на севере Беларуси недалеко от границы с Россией. Пятый по численности город страны (здесь живут почти 400 тысяч человек) также является вторым по старшинству. Город был основан в 974 году — на 112 лет позже, чем Полоцк, самый древний город Беларуси.
                 Витебск расположен на берегах двух рек: Западной Двины и Витьбы. В честь второй он и получил название. Многие годы Витебск процветал благодаря выгодному положению на торговом пути «из варяг в греки». Но и желающих присоединить богатый город было немало. За свою историю Витебск успел побывать столицей удельного княжества, входил в состав Литовского княжества и Речи Посполитой, Российской империи и СССР. Этот город известен своей богатой историей, уникальной архитектурой и знаменитыми уроженцами, такими как Марк Шагал.</p>
                 <p>Сегодня Витебск является символом патриотизма и культурного наследия Беларуси, а также городом, который постоянно развивается.</p>
-                <div class="links">
-                    <a href="https://ru.wikipedia.org/wiki/Витебск" target="_blank">Подробнее о Витебске</a>
-                </div>
+<div class="film-strip">
+		 <a href="https://ru.wikipedia.org/wiki/Дворец_губернатора_(Витебск)#/media/Файл:Советская_18_Путна.jpg" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Советская_18_Путна.jpg" alt="Дворец губернатора"> </a>
+		<a href="https://ratusha-vit.by/ru/uslugi/istoriya" target="_blank">
+            <img src="https://ratusha-vit.by/sites/default/files/imce-files/vitebsk_ratusha_1.jpg" alt="Ратуша"></a>
+		<a href="https://ru.wikipedia.org/wiki/Успенский_собор_(Витебск)#/media/Файл:Church_of_the_Assumption_in_Viciebsk_(2011).jpg" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Church_of_the_Assumption_in_Viciebsk_%282011%29.jpg/1280px-Church_of_the_Assumption_in_Viciebsk_%282011%29.jpg" alt="Успенский собор"></a>
+		<a href="https://belta.by/regions/view/skolko-deneg-i-chasov-na-nee-574349-2023/" target="_blank">
+            <img src="https://img.belta.by/uploads/lotus/news/2023/000023_34E7BDCF04C9D18D432589DC00666E18_919214.jpg" alt="Площадь Победы">
+		</a>
+		<a href="https://ru.wikipedia.org/wiki/Витьба" target="_blank">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/d2/f0/01/caption.jpg?w=900&h=500&s=1" alt="Река Витьба"></a>
+		<a href="https://ru.wikipedia.org/wiki/Музей_Марка_Шагала_(Витебск)#/media/Файл:Marc_Chagall_House_-_Vitebsk_-_Belarus_(27430073700).jpg" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Marc_Chagall_House_-_Vitebsk_-_Belarus_%2827430073700%29.jpg/1280px-Marc_Chagall_House_-_Vitebsk_-_Belarus_%2827430073700%29.jpg" alt="Дом-музей Шагала"></a>
+        </div>
+  <div class="links">
+            <a href="https://ru.wikipedia.org/wiki/Витебск" target="_blank">Подробнее о Витебске</a>
+        </div>
             </section>
             <hr>
             <section id="history" class="section">
@@ -389,6 +559,27 @@
                 <p>В 1597 году от короля Сигизмунда III Витебск получил свой герб и грамоту на Магдебургское право, что давало возможность регулировать жизнь города с помощью собственной системы юридических норм. В 1792 году Витебск вошел в состав Российской империи и в 1796 году стал центром Белорусской, с 1802 года - Витебской губернии.</p>
                 <p>Город быстро развивался. Уже в первые десятилетия ХХ века он стал одним из крупнейших центров Беларуси. В нем проживало 109 тыс. жителей, работали 45 предприятий, две гимназии, учительский институт, духовная семинария, пять библиотек, частная художественная школа Ю.Пэна. В 20-х годах Витебск становится центром художественной жизни: открывается Народное художественное училище (ныне Витебское художественное училище), его основателем стал художник Марк Шагал, Витебская Народная консерватория, Театр революционной сатиры (Теревсат) и многое другое.</p>
                 <p>В 1918 году Витебск входит в состав Западной области РСФСР, в 1924 году - в состав БССР, с 1938 года становится областным центром, насчитывающим 209 предприятий, три ВУЗа, 42 общеобразовательные школы, 40 библиотек, 11 больниц, три кинотеатра, цирк и драмтеатр.</p>
+ <div class="film-strip historical">
+        <a href="https://example.com/link1" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Viciebsk%2C_Vialikaja-Rynak._Віцебск%2C_Вялікая-Рынак_%28N._Orda%2C_1875-76%29.jpg/330px-Viciebsk%2C_Vialikaja-Rynak._Віцебск%2C_Вялікая-Рынак_%28N._Orda%2C_1875-76%29.jpg" alt="Историческое здание">
+        </a>
+        <a href="https://example.com/link2" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Viciebsk._Віцебск_%281664%29.jpg/330px-Viciebsk._Віцебск_%281664%29.jpg" alt="Карта">
+        </a>
+       <a href="https://example.com/link2" target="_blank">
+            <img src="https://avatars.mds.yandex.net/i?id=55e435e5a316c27645a3db4c03a2f4ac_sr-12494956-images-thumbs&n=13" alt="Герб">
+        </a>
+ <a href="https://example.com/link2" target="_blank">
+            <img src="https://vitebsk.gov.by/uploads/images/resheno-bylo-vosstanovit.jpg" alt="Война">
+        </a>
+ <a href="https://example.com/link2" target="_blank">
+            <img src="https://vitvesti.by/images/y2024/04-26/retrospektiva-3.jpg" alt="Втб">
+        </a>
+ <a href="https://example.com/link2" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/BFC_Vitebsk_Zamkovaya_str.jpg" alt="1900">
+        </a>
+
+    </div>
                 <div class="links">
                     <a href="https://vitebsk.gov.by/ru/new_3-ru/" target="_blank">История Витебска</a>
                 </div>
@@ -399,6 +590,26 @@
                 <p>Витебск и Витебская область столкнулись с самыми тяжёлыми испытаниями во время Великой Отечественной войны. 11 июля 1941 года город был оккупирован. В первые дни войны для его обороны были созданы Витебское народное ополчение и местные противовоздушные дружины, а также построены оборонительные линии. В Суражском районе отряд Батьки Миная (М.Ф. Шмырев) начал бескомпромиссную борьбу с врагом, а параллельно действовал отряд «Дяди Кости» (К.С. Заслонов), сформированный на основе подпольной группы из Орши. Ветераны Витебского подполья, такие как В.З. Хоружая и Е.С. Зенькова (посмертно удостоенная звания Героя Советского Союза), а также И.А. Бекишев и А.Е. Белохвостикова, оставили яркий след в истории.</p>
                 <p>Освобождение Витебской области началось осенью 1943 года и продолжилось летом 1944 года в рамках операции «Багратион». 26 июня 1944 года город был освобождён.</p>
                 <p>Великая Отечественная война принесла Витебску невиданные разрушения: более 90% города было разрушено, целые кварталы и промышленные предприятия уничтожены, а памятники архитектуры серьёзно пострадали. Тысячи жителей погибли, были замучены в концлагерях и угнаны в Германию. Тем не менее, в первые послевоенные годы Витебск не только восстановился, но и значительно расширился. К 80-летию Победы мы чтим память героев, которые отдали свои жизни за свободу родной земли. Витебск навсегда останется символом мужества и стойкости.</p>
+ <div class="film-strip military">
+        <a href="https://example.com/war1" target="_blank">
+            <img src="https://sun9-22.userapi.com/impf/c631327/v631327453/a61c/p9xCRzgQGrM.jpg?size=604x447&quality=96&sign=cf026295e16e43ea0b82ef5a58146320&type=album" alt="Военный мемориал">
+        </a>
+        <a href="https://example.com/war2" target="_blank">
+            <img src="https://belaes.by/media/k2/items/cache/93c651dedbc07f5957173e5e55915d60_XL.jpg" alt="Парад Победы">
+        </a>
+        <a href="https://example.com/war2" target="_blank">
+            <img src="https://vitvesti.by/images/y2022/06-12/1-15.jpg" alt="Парад Победы">
+        </a>
+ <a href="https://example.com/war2" target="_blank">
+            <img src="https://vitebsk.1prof.by/file/2025/02/IMG_20250218_092324_967.jpg" alt="Парад Победы">
+        </a>
+ <a href="https://example.com/war2" target="_blank">
+            <img src="https://upk1.brestgoo.gov.by/files/01095/obj/125/14503/img/Logo-80-let.jpg" alt="Парад Победы">
+        </a>
+ <a href="https://example.com/war2" target="_blank">
+            <img src="https://vitvesti.by/images/y2019/05-09/9may-02.jpg" alt="Парад Победы">
+        </a>
+    </div>
                 <div class="links">
                     <a href="https://subbotniki.ivjeroo.gov.by/новости/80-лет-победы-советского-народа-в-великой-отечественной-войне">Подробнее</a>
                 </div>
@@ -410,6 +621,24 @@
                 <p>Александр Ефимович Белохвостиков родился 10 августа 1914 года в деревне Альховик сегодняшнего Лиозненского района в крестьянской семье. После окончания семилетки он работал на Лиозненском льнокомбинате, затем был кочегаром на швейной фабрике «Профинтерн» в Витебске и одновременно учился на рабфаке Витебского индустриально-педагогического института. Позже он поступил в Белорусский институт народного хозяйства в Минске на планово-экономический факультет. В 1938 году его направили на станкостроительный завод имени С. М. Кирова в Гомеле, но он вернулся в Витебск, чтобы быть ближе к семье.</p>
                 <p>С началом Великой Отечественной войны Александр Белохвостиков был оставлен в Витебске для организации подпольной работы. Он возглавил одну из самых боевых подпольных групп, действовавшую под псевдонимом Альдемар. Группа эффективно вела разведывательную работу, совершала диверсии и поддерживала связь с партизанскими отрядами. В 1943 году Александр Ефимович и его сестра Мария были арестованы и расстреляны фашистами. В 1948 году Александр Белохвостиков был посмертно награжден орденом Отечественной войны I степени.</p>
                 <p>Память о героях Великой Отечественной войны живет в наших сердцах. Мы, ученики школы № 6, гордимся тем, что наша школа носит имя Александра Ефимовича Белохвостикова. Его пример вдохновляет нас на подвиги и патриотизм. Мы помним и чтим всех, кто отдал свои жизни за свободу и независимость нашей Родины.</p>
+ <div class="film-strip heroes">
+        <a href="https://www.vitbichi.by/news/obshchestvo/podpolshchik_podvig_osobogo_roda_istoriya_aleksandra_efimovicha_belokhvostikova/" target="_blank">
+            <img src="https://www.vitbichi.by/photo/09-2024-1/белохв%20КП%2015750.01.jpg" alt="Портрет героя">
+        </a>
+ <a href="http://www.evitebsk.com/wiki/Сильницкий,_Михаил_Фёдорович" target="_blank">
+            <img src="http://www.evitebsk.com/w/images/7/7d/Sylnytskyy-3.jpg" alt="Портрет героя">
+        </a>
+ <a href="http://www.evitebsk.com/wiki/Кондратьев,_Пётр_Васильевич" target="_blank">
+            <img src="http://www.evitebsk.com/w/images/2/22/Kondratiev.jpg" alt="Портрет героя">
+        </a>
+ <a href="http://www.evitebsk.com/wiki/Шмырёв,_Минай_Филиппович" target="_blank">
+            <img src="http://www.evitebsk.com/w/images/0/00/Shmyrev.jpg" alt="Портрет героя">
+        </a>
+        <a href="http://shmyrev.museum.by/node/16875" target="_blank">
+            <img src="http://shmyrev.museum.by/files/shmyrev/images/146t.jpg" alt="Награды">
+        </a>
+        <!-- Добавьте еще 4 изображения -->
+    </div>
                 <div class="links">
                     <a href="http://www.evitebsk.com/wiki/Герои_Советского_Союза" target="_blank">Герои Великой Отечественной войны</a>
                 </div>
@@ -421,13 +650,34 @@
                 <p>В школе всегда уделяли большое внимание военно-патриотическому и гражданскому воспитанию учащихся. Частыми гостями школы были ветераны Великой Отечественной войны, а сейчас школьники поддерживают связь с бывшими узниками фашистских концлагерей, воинами-интернационалистами, ветеранами Вооруженных Сил и труда.</p>
                 <p>Одно из школьных помещений оформлено как музей, посвященный участникам Великой Отечественной войны. Здесь можно увидеть портреты героев, в том числе Александра Белохвостикова, а также стенды, рассказывающие о геноциде белорусского народа в годы войны. В планах педагогического коллектива — расширение экспозиции, посвященной герою-подпольщику.</p>
                 <p>Воспитание гражданина и патриота стоит у нас на первом месте. Мы все — и учащиеся, и педагоги — гордимся тем, что наша школа носит имя героя. Мужество и патриотизм Александра Белохвостикова служат для нас примером и вдохновляют на новые свершения.</p>
+ <div class="film-strip school">
+        <a href="https://example.com/school1" target="_blank">
+            <img src="https://avatars.mds.yandex.net/get-altay/7659180/2a000001833fc67992fcfa29c771f98c53d0/XXXL" alt="Здание школы">
+        </a>
+        <a href="https://example.com/school2" target="_blank">
+            <img src="https://sun9-46.userapi.com/s/v1/ig2/W0lJ9T1Zv6RUq02_TfL3fr9E-GfSHQuEHwQ_4Jxh4AXRbvPjjTbcHDnJn5VWwqYnH-sTg2Y33g7vLRVu2PE6plYB.jpg?quality=96&crop=0,0,1600,1198&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x359,540x404,640x479,720x539,1080x809,1280x958,1440x1078,1600x1198&from=bu&u=12LiAZYBP073KqBkoZ3Is-PUOAvwtP3K_cORgWUEkzY&cs=640x479" alt="Школьный музей">
+        </a>
+ <a href="https://example.com/school2" target="_blank">
+            <img src="https://sun9-79.userapi.com/s/v1/ig2/ookc9cjuq2lv_F6E451I5dE8wFUJLUryLDfrGveawyDUgoDKP_7xzwOZbQmZoPuj1ocnz2cGRH7NY6HEeDVxb7wc.jpg?quality=95&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x360,540x405,640x480&from=bu&u=1jacuD3I6eDKzXOwvJ43E6W2RxvaVw_ThDFcu4Gt5fI&cs=640x480" alt="Школьный музей">
+        </a>
+ <a href="https://example.com/school2" target="_blank">
+            <img src="https://sun9-76.userapi.com/s/v1/ig2/7CqLpB7z2HHnpGD987ZSYoVJmVLfSsbN30HOyi6RFSVZaQAUeyV_uIMVXbgzeC_jayskiMIyqVPDncH8xjJYjqZe.jpg?quality=95&as=32x29,48x44,72x66,108x99,160x147,240x220,360x331,480x441,540x496,640x588,720x661,1080x992,1201x1103&from=bu&u=ExrpU05a0_MdGknR7WP998xzuFy68keIfd-CHsfzv-8&cs=807x741" alt="Школьный музей">
+        </a>
+ <a href="https://example.com/school2" target="_blank">
+            <img src="https://sun9-49.userapi.com/s/v1/ig2/qMYTXBykTpqjwIFtAtz2NRzKKDfT6uKBMzeEbzFT-vml29ixgFoqWgkEH9VtA7RV52gXheMv0uyfITomcUMnVna6.jpg?quality=95&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x360,540x405,640x480&from=bu&u=p8s9zm50tQy7EFbKlx-TXlGIqqovRrUWG-8Ue6zl-fc&cs=640x480" alt="Школьный музей">
+        </a>
+ <a href="https://example.com/school2" target="_blank">
+            <img src="https://www.vitbichi.by/photo/09-2024-1/_NIK0010.JPG" alt="Школьный музей">
+        </a>
+
+    </div>
                 <div class="links">
                     <a href="https://yandex.by/maps/org/srednyaya_shkola_6_g_vitebska_imeni_a_ye_belokhvostikova/1012391857/?ll=30.250589%2C55.199160&mode=search&sll=30.250589%2C55.199160&source=serp_navig&text=школа%20номер%206%20витебск&z=16" target="_blank">Смотреть карту города</a>
                 </div>
             </section>
             <hr>
             <section id="personal-statement" class="section">
-                <h2>Почему я выбрал эту тему</h2>
+                <h2>Актуальность</h2>
                 <p>Я, ученик школы № 6 в Витебске, решил создать этот сайт, чтобы почтить память героев Великой Отечественной войны и рассказать о тех, кто отдал свои жизни за свободу нашей Родины. Наша школа носит имя Александра Ефимовича Белохвостикова, и я горжусь тем, что могу внести свой вклад в сохранение памяти о его подвигах.</p>
                 <p>Александр Белохвостиков и его товарищи проявили невероятное мужество и героизм в борьбе с фашистскими захватчиками. Их пример вдохновляет меня и моих одноклассников на подвиги и патриотизм. Мы помним и чтим всех, кто отдал свои жизни за свободу и независимость нашей страны.</p>
                 <p>Создание этого сайта — мой способ выразить благодарность и уважение к героям войны. Я надеюсь, что эта информация будет полезна и интересна всем, кто посетит мой сайт, и поможет сохранить память о великих подвигах нашего народа.</p>
@@ -481,7 +731,7 @@
             </div>
             <div class="news-item">
                 <a href="https://vitvesti.by/obshestvo/kogda-roditeli-mogut-vziat-dopolnitelnyi-vykhodnoi-rasskazali-v-mintruda.html" target="_blank">
-                    <img src="https://img.belta.by/images/storage/news/with_archive/2025/000022_1739872983_696682_big.jpg" alt="Новый спортивный объект">
+                    <img src="https://president.gov.by/fp/v1/699/image-thumb__17699__block-right-left/17699.1590595157.9431148d8d.jpg" alt="Новый спортивный объект">
                     <span>Когда родители могут взять дополнительный выходной, рассказали в Минтруда</span>
                 </a>
             </div>
@@ -513,7 +763,7 @@
             <a href="https://dzen.ru/a/YgC74-5h9iylQ_av" target="_blank">Галерея</a>
         </div>
         <p>&copy; 2025 Горжусь тобой, моя страна! Горжусь тобой, мой город!</p>
-  <nav class="fixed-menu">
+    <nav class="fixed-menu">
         <div class="toggle-btn" onclick="toggleMenu()"></div>
         <ul>
             <li><a href="#about">О Витебске</a></li>
@@ -521,7 +771,7 @@
             <li><a href="#projects">80-летие Победы</a></li>
             <li><a href="#projects1">Герои ВОВ</a></li>
             <li><a href="#projects2">Школа № 6</a></li>
-            <li><a href="#personal-statement">Причина</a></li>
+            <li><a href="#personal-statement">Актуальность</a></li>
         </ul>
     </nav>
 
